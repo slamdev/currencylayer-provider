@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'idea'
+    id 'maven'
+}
+
+group 'com.github.slamdev'
+version '0.1-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'javax.money:money-api:1.0'
+    compile 'javax.json:javax.json-api:1.0'
+    compile 'org.javamoney:moneta:1.0'
+    runtime 'org.glassfish:javax.json:1.0.4'
+    testCompile 'junit:junit:4.12'
+}
+
+clean {
+    delete '.resourceCache'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
+}
